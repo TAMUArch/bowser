@@ -44,6 +44,11 @@ while true; do
   rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
   chromium http://www.google.com/
 done' > .xinitrc #check
+#i believe i found the step that has been eluding me
+#entering just below
+
+cp .xinitrc /home/guest #check
+#nope, not the one, but certainly important
 
 rm /etc/xdg/openbox/menu.xml
 touch /etc/xdg/openbox/menu.xml
