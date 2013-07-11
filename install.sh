@@ -1,19 +1,16 @@
-pacman -Syy
-pacman -Syu
+chmod u+x arch.sh
+chmod u+x archroot.sh
+chmod u+x bowser.sh
 
-#Partitioning Shit
+./arch.sh
 
-mkfs.ext4 /dev/sdb1
-mkfs.ext4 /dev/sdb2
+echo unmounting...
+sleep 5s
+umount /mnt/home
+umount /mnt
+echo unmounted
+sleep 5s
 
-mount /dev/sdb1 /mnt
-mkdir /mnt/home
-mount /dev/sdb2 /mnt/home
-
-pacstrap /mnt base
-
-genfstab -U -p /mnt >> /mnt/etc/fstab
-
-arch-chroot /mnt
-
-
+echo shutting down...
+sleep 5s
+shutdown now

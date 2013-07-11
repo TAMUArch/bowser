@@ -1,60 +1,72 @@
 # this is all post partitioning and initial install
 
-# to activate, use: ./bowser.sh
-
-pacman -S xorg-server xorg-server-utils xorg-xinit
-pacman -S mesa
-pacman -S xf86-video-vesa xf86-video-intel
+pacman -S xorg-server xorg-server-utils xorg-xinit 
+pacman -S mesa xf86-video-vesa xf86-video-intel 
 pacman -S xorg-twm xorg-xclock xterm
-pacman -S alsa-utils
-
-rm ~/.xinitrc
-
-pacman -S openbox chromium openssh rsync flashplayer
-
+pacman -S openbox chromium openssh rsync flashplayer alsa-utils
+echo pacman operations complete
+sleep 5s
+#rm ~/.xinitrc
 useradd -m guest
+echo guest user added
+sleep 5s
 
-echo "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx" >> ~/.zprofile
-
-cp /etc/skel/.bash_profile ~/.bashprofile
-echo "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx" >> ~/.bash_profile
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile
+cp /etc/skel/.bash_profile ~/.bash_profile
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
+echo .zprofile and .bash_profile configured
+sleep 5s
 
 mkdir /etc/systemd/system/getty@tty1.service.d
 touch /etc/systemd/system/getty@tty1.service.d/autologin.conf
+echo getty directory created and autologin.conf created
+sleep 5s
 
-echo ":i" >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo "[Service]" >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo "ExecStart=-usr/bin/agetty --autologin guest --noclear % 38400 linux" >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo "Type=simple" >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
+echo ':i
+[Service]
+ExecStart=
+ExecStart=-usr/bin/agetty --autologin guest --noclear %I 38400 linux
+Type=simple' >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
+echo autologin.conf configured
+sleep 5s
 
 systemctl enable graphical.target
+echo systemctl enable graphical.target
+sleep 5s
 
 cp -r /home/guest /opt/
-cd /opt/guest
-chmod -R a+r /opt/guest
+cd /opt/guest/
+chmod -R a+r .
+echo changed directory to /opt/guest and gave permissions
+sleep 5s
 
 touch .xinitrc
-
-echo ":i" >> .xinitrc
-echo "xset s off" >> .xinitrc
-echo "xset -dpms" >> .xinitrc
-echo "openbox-session &" >> .xinitrc
-echo "while true; do" >> .xinitrc
-echo "  rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/" >> .xinitrc
-echo "  chromium http: //www.google.com/" >> .xinitrc
-echo "done" >> .xinitrc
+chmod a+x .xinitrc
+echo ':i
+xset s off
+xset -dpms
+openbox-session &
+while true; do
+  rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
+  chromium http://www.google.com/
+done' >> .xinitrc
+echo .xinitrc created and modified
+sleep 5s
 
 rm /etc/xdg/openbox/menu.xml
 touch /etc/xdg/openbox/menu.xml
-
-echo "<openbox_menu>" >> /etc/xdg/openbox/menu.xml
-echo '<menu id="root-menu" label="Openbox 3">' >> /etc/xdg/openbox/menu.xml
-echo '  <seperator label="Operation Not Supported" />' >> /etc/xdg/openbox/menu.xml
-echo "</menu>" >> /etc/xdg/openbox/menu.xml
-echo "</openbox_menu>" >> /etc/xdg/openbox/menu.xml
+echo '<openbox_menu>
+<menu id="root-menu" label="Openbox 3">
+  <seperator label="Operation Not Supported" />
+</menu>
+</openbox_menu>' >> /etc/xdg/openbox/menu.xml
+echo openbox menu edited
+sleep 5s
 
 rm /etc/xdg/openbox/rc.xml
 cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
-
-reboot
+echo chrome set to maximized
+sleep 5s
+echo shutting down
+sleep 5s
+shutdown now
