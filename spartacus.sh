@@ -47,7 +47,7 @@ while true; do
   chromium http://www.google.com/
 done' >> .xinitrc #check
 
-cp .xinitrc /home/guest #check
+cp .xinitrc /home/guest/ #check
 
 #rm /etc/xdg/openbox/menu.xml
 #touch /etc/xdg/openbox/menu.xml
