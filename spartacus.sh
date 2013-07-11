@@ -16,47 +16,34 @@ pacman -S openbox chromium openssh rsync #check
 
 useradd -m guest #check
 
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile
-cp /etc/skel/.bash_profile ~/.bash_profile
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
-echo .zprofile and .bash_profile configured
-sleep 5s
+cp /etc/skel/.bash_profile ~/.bash_profile #check
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile #check
 
-mkdir /etc/systemd/system/getty@tty1.service.d
-touch /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo getty directory created and autologin.conf created
-sleep 5s
+mkdir /etc/systemd/system/getty@tty1.service.d #check
+touch /etc/systemd/system/getty@tty1.service.d/autologin.conf #check
 
-echo ':i
-[Service]
+#no :i required on this one...
+echo '[Service]
 ExecStart=
 ExecStart=-usr/bin/agetty --autologin guest --noclear %I 38400 linux
-Type=simple' >> /etc/systemd/system/getty@tty1.service.d/autologin.conf
-echo autologin.conf configured
-sleep 5s
+Type=simple' > /etc/systemd/system/getty@tty1.service.d/autologin.conf #check
 
-systemctl enable graphical.target
-echo systemctl enable graphical.target
-sleep 5s
+systemctl enable graphical.target #check
 
-cp -r /home/guest /opt/
-cd /opt/guest/
-chmod -R a+r .
-echo changed directory to /opt/guest and gave permissions
-sleep 5s
+cp -r /home/guest /opt/ #check
+cd /opt/guest/ #check
+chmod -R a+r . 
+#^^check
 
-touch .xinitrc
-chmod a+x .xinitrc
-echo ':i
-xset s off
+touch .xinitrc #check
+chmod a+x .xinitrc #check
+echo 'xset s off
 xset -dpms
 openbox-session &
 while true; do
   rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
   chromium http://www.google.com/
-done' >> .xinitrc
-echo .xinitrc created and modified
-sleep 5s
+done' > .xinitrc #check
 
 rm /etc/xdg/openbox/menu.xml
 touch /etc/xdg/openbox/menu.xml
