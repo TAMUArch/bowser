@@ -26,4 +26,4 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 cp -r /home/bowser /mnt/home
 
-arch-chroot /mnt /home/bowser/archroot.sh
+arch-chroot /mnt /home/bowser/root.sh

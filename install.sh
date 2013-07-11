@@ -1,5 +1,5 @@
 chmod u+x arch.sh
-chmod u+x archroot.sh
+chmod u+x root.sh
 chmod u+x bowser.sh
 
 ./arch.sh
