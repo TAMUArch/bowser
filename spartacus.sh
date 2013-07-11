@@ -19,13 +19,14 @@ useradd -m guest #check
 cp /etc/skel/.bash_profile ~/.bash_profile #check
 echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile #check
 
-mkdir /etc/systemd/system/getty@tty1.service.d #check
+#ok, now i think i've figured it out... there has to be an error is this service.d area
+#upon fixing it, autologin for guest is operational!!!
+mkdir /etc/systemd/system/getty@tty1.service.d/ #check
 touch /etc/systemd/system/getty@tty1.service.d/autologin.conf #check
-
-#no :i required on this one...
+#was missing a forward slash on /usr
 echo '[Service]
 ExecStart=
-ExecStart=-usr/bin/agetty --autologin guest --noclear %I 38400 linux
+ExecStart=-/usr/bin/agetty --autologin guest --noclear %I 38400 linux
 Type=simple' > /etc/systemd/system/getty@tty1.service.d/autologin.conf #check
 
 systemctl enable graphical.target #check
@@ -44,11 +45,8 @@ while true; do
   rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
   chromium http://www.google.com/
 done' > .xinitrc #check
-#i believe i found the step that has been eluding me
-#entering just below
 
 cp .xinitrc /home/guest #check
-#nope, not the one, but certainly important
 
 rm /etc/xdg/openbox/menu.xml
 touch /etc/xdg/openbox/menu.xml
