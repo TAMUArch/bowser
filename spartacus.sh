@@ -1,15 +1,20 @@
 # this is all post partitioning, initial install, and reboot
+# attempting to discover exact path to perfect bowser setup
 
-pacman -S xorg-server xorg-server-utils xorg-xinit 
-pacman -S mesa xf86-video-vesa xf86-video-intel 
-pacman -S xorg-twm xorg-xclock xterm
-pacman -S openbox chromium openssh rsync flashplayer alsa-utils
-echo pacman operations complete
-sleep 5s
-#rm ~/.xinitrc
-useradd -m guest
-echo guest user added
-sleep 5s
+pacman -S xorg-server xorg-server-utils xorg-xinit #check
+pacman -S mesa #check
+pacman -S xf86-video-vesa #check 
+pacman -S xf86-video-intel #check
+pacman -S xorg-twm xorg-xclock xterm #check
+
+#### Doing something different here
+#there is no ~/.xinitrc file to remove, contrary to directions
+startx #check 
+#need to manually exit X to return to script
+
+pacman -S openbox chromium openssh rsync #check
+
+useradd -m guest #check
 
 echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile
 cp /etc/skel/.bash_profile ~/.bash_profile
@@ -69,4 +74,5 @@ echo chrome set to maximized
 sleep 5s
 echo shutting down
 sleep 5s
+flashplayer alsa-utils
 shutdown now
