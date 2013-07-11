@@ -18,6 +18,7 @@ useradd -m guest #check
 
 cp /etc/skel/.bash_profile ~/.bash_profile #check
 echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile #check
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile #check
 
 #ok, now i think i've figured it out... there has to be an error is this service.d area
 #upon fixing it, autologin for guest is operational!!!
@@ -36,7 +37,7 @@ cd /opt/guest/ #check
 chmod -R a+r . 
 #^^check
 
-touch .xinitrc #check
+cp /etc/skel.xinitrc /opt/guest/ #check
 chmod a+x .xinitrc #check
 echo 'xset s off
 xset -dpms
@@ -44,25 +45,25 @@ openbox-session &
 while true; do
   rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
   chromium http://www.google.com/
-done' > .xinitrc #check
+done' >> .xinitrc #check
 
 cp .xinitrc /home/guest #check
 
-rm /etc/xdg/openbox/menu.xml
-touch /etc/xdg/openbox/menu.xml
-echo '<openbox_menu>
-<menu id="root-menu" label="Openbox 3">
-  <seperator label="Operation Not Supported" />
-</menu>
-</openbox_menu>' >> /etc/xdg/openbox/menu.xml
-echo openbox menu edited
-sleep 5s
+#rm /etc/xdg/openbox/menu.xml
+#touch /etc/xdg/openbox/menu.xml
+#echo '<openbox_menu>
+#<menu id="root-menu" label="Openbox 3">
+#  <seperator label="Operation Not Supported" />
+#</menu>
+#</openbox_menu>' >> /etc/xdg/openbox/menu.xml
+#echo openbox menu edited
+#sleep 5s
 
-rm /etc/xdg/openbox/rc.xml
-cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
-echo chrome set to maximized
-sleep 5s
-echo shutting down
-sleep 5s
-flashplayer alsa-utils
-shutdown now
+#rm /etc/xdg/openbox/rc.xml
+#cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
+#echo chrome set to maximized
+#sleep 5s
+#echo shutting down
+#sleep 5s
+#flashplayer alsa-utils
+#shutdown now
