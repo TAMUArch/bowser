@@ -7,7 +7,7 @@ export LANG=en_US.UTF-8
 ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 hwclock --systohc --utc
 
-#echo bowser > /etc/hostname
+echo bowser > /etc/hostname
 systemctl enable dhcpcd.service
 
 passwd
