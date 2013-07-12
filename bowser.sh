@@ -10,9 +10,7 @@ pacman -S openbox chromium openssh rsync
 
 useradd -m guest
 
-cp /etc/skel/.bash_profile ~/.bash_profile
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> /home/guest/.bash_profile
 
 mkdir /etc/systemd/system/getty@tty1.service.d/
 touch /etc/systemd/system/getty@tty1.service.d/autologin.conf
@@ -28,16 +26,8 @@ cp -r /home/guest /opt/
 cd /opt/guest/
 chmod -R a+r . 
 
-cp /etc/skel.xinitrc /opt/guest/
+cp /home/bowser/.xinitrc /opt/guest/
 chmod a+x .xinitrc
-echo 'xset s off
-xset -dpms
-openbox-session &
-while true; do
-  rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
-  chromium http://www.google.com/
-done' >> .xinitrc
-
 cp .xinitrc /home/guest/
 
 reboot

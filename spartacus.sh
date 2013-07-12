@@ -15,10 +15,9 @@ startx #check
 pacman -S openbox chromium openssh rsync #check
 
 useradd -m guest #check
-
-cp /etc/skel/.bash_profile ~/.bash_profile #check
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile #check
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.zprofile #check
+#i figured out why startx was not running automatically, the .bash_profile needs to be in the guest's home directory... duh
+#cp /etc/skel/.bash_profile /home/guest/.bash_profile #check
+echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> /home/guest/.bash_profile #check
 
 #ok, now i think i've figured it out... there has to be an error is this service.d area
 #upon fixing it, autologin for guest is operational!!!
@@ -37,16 +36,8 @@ cd /opt/guest/ #check
 chmod -R a+r . 
 #^^check
 
-cp /etc/skel.xinitrc /opt/guest/ #check
+cp /home/bowser/.xinitrc /opt/guest/ #check
 chmod a+x .xinitrc #check
-echo 'xset s off
-xset -dpms
-openbox-session &
-while true; do
-  rsync -qr --delete --exclude='.Xauthority' /opt/guest/ $HOME/
-  chromium http://www.google.com/
-done' >> .xinitrc #check
-
 cp .xinitrc /home/guest/ #check
 
 #rm /etc/xdg/openbox/menu.xml
