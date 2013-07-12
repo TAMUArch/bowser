@@ -1,5 +1,5 @@
-#bowser
-![bowser](https://sites.google.com/site/palaceofshadow/ttyd-bowser.jpg)
+<img src="https://sites.google.com/site/palaceofshadow/ttyd-bowser.jpg" alt="bowser" height="300" width="300"> #bowser
+
 bowser is a chromium-browser-only arch build
 
 the encompassing bowser directory needs to be copied into the /home directory
