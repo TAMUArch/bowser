@@ -1,4 +1,4 @@
-#bowser <img src="https://sites.google.com/site/palaceofshadow/ttyd-bowser.jpg" alt="bowser" height="50" width="50">
+#bowser 
 <img src="https://sites.google.com/site/palaceofshadow/ttyd-bowser.jpg" alt="bowser" height="150" width="150"> 
 
 bowser is a chromium-browser-only arch build
