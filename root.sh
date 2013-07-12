@@ -15,8 +15,4 @@ passwd
 pacman -S grub
 grub-install --recheck /dev/sdb
 grub-mkconfig -o /boot/grub/grub.cfg
-
-echo Running bowser...
-sleep 5s
-./bowser.sh
 exit

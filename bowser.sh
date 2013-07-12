@@ -57,3 +57,7 @@ rm /etc/xdg/openbox/rc.xml
 cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
 echo chromium maximized...
 sleep 2s
+
+echo rebooting...
+sleep 2s
+reboot
