@@ -30,15 +30,4 @@ cp /home/bowser/.xinitrc /opt/guest/
 chmod a+x .xinitrc
 cp .xinitrc /home/guest/
 
-rm /etc/xdg/openbox/menu.xml
-touch /etc/xdg/openbox/menu.xml
-echo '<openbox_menu>
-<menu id="root-menu" label="Openbox 3">
-  <separator label="Operation Not Supported" />
-</menu>
-</openbox_menu>' >> /etc/xdg/openbox/menu.xml
-
-rm /etc/xdg/openbox/rc.xml
-cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
-
 reboot
