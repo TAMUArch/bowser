@@ -17,4 +17,4 @@ after reboot, execute bowser.sh
 
 ./bowser.sh
 
-commit 12.2.1, last stable commit
+commit 12.3.3, mpst recent stable commit
