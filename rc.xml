@@ -592,11 +592,14 @@
 
   <context name="Root">
     <!-- Menus -->
-    <mousebind button="Middle" action="Press">
-      <action name="ShowMenu"><menu>client-list-combined-menu</menu></action>
+    <mousebind button="Left" action="Click">
+      <action name="Execute"><command>chromium</command></action>
     </mousebind> 
-    <mousebind button="Right" action="Press">
-      <action name="ShowMenu"><menu>root-menu</menu></action>
+    <mousebind button="Middle" action="Click">
+      <action name="Execute"><command>chromium</command></action>
+    </mousebind>
+    <mousebind button="Right" action="Click">
+      <action name="Execute"><command>chromium</command></action>
     </mousebind>
   </context>
 
