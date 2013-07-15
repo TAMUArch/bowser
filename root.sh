@@ -12,7 +12,7 @@ systemctl enable dhcpcd.service
 
 passwd
 
-pacman -S grub
+pacman -S --noconfirm grub
 grub-install --recheck /dev/sdb
 grub-mkconfig -o /boot/grub/grub.cfg
 exit

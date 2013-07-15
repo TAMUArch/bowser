@@ -1,14 +1,14 @@
 # this is all post partitioning, initial install, and reboot
 
-pacman -S xorg-server xorg-server-utils xorg-xinit
-pacman -S mesa
-pacman -S xf86-video-vesa
-pacman -S xf86-video-intel
-pacman -S xorg-twm xorg-xclock xterm
+pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit
+pacman -S --noconfirm mesa
+pacman -S --noconfirm xf86-video-vesa
+pacman -S --noconfirm xf86-video-intel
+pacman -S --noconfirm xorg-twm xorg-xclock xterm
 
-pacman -S openbox chromium openssh rsync
+pacman -S --noconfirm openbox chromium openssh rsync
 
-pacman -S flashplayer feh
+pacman -S --noconfirm flashplayer feh
 
 echo pacman operations complete
 sleep 2s
