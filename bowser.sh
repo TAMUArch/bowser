@@ -8,7 +8,7 @@ pacman -S xorg-twm xorg-xclock xterm
 
 pacman -S openbox chromium openssh rsync
 
-pacman -S flashplayer
+pacman -S flashplayer feh
 
 echo pacman operations complete
 sleep 2s
