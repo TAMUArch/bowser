@@ -43,19 +43,10 @@ cp .xinitrc /home/guest/
 echo xinitrc configured...
 sleep 2s
 
-rm /etc/xdg/openbox/menu.xml
-touch /etc/xdg/openbox/menu.xml
-echo '<openbox_menu>
-<menu id="root-menu" label="Openbox 3">
-  <separator label="Operation Not Supported" />
-</menu>
-</openbox_menu>' >> /etc/xdg/openbox/menu.xml
-echo openbox root-menu configured...
-sleep 2s
-
+cp /home/bowser/.fehbg /home/guest/
 rm /etc/xdg/openbox/rc.xml
 cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
-echo chromium maximized...
+echo desktop and chromium configured...
 sleep 2s
 
 echo rebooting...

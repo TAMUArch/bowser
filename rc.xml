@@ -593,14 +593,8 @@
   <context name="Root">
     <!-- Menus -->
     <mousebind button="Left" action="Click">
-      <action name="Execute"><command>chromium</command></action>
+      <action name="Execute"><command>chromium http://www.google.com</command></action>
     </mousebind> 
-    <mousebind button="Middle" action="Click">
-      <action name="Execute"><command>chromium</command></action>
-    </mousebind>
-    <mousebind button="Right" action="Click">
-      <action name="Execute"><command>chromium</command></action>
-    </mousebind>
   </context>
 
   <context name="MoveResize">
