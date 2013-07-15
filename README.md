@@ -9,7 +9,9 @@ install.sh needs to be made executable
 chmod u+x install.sh
 
 execute install.sh
+
 ./install.sh
 
 after reboot, execute bowser.sh
+
 ./bowser.sh
