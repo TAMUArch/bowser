@@ -49,7 +49,7 @@ cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
 echo desktop and chromium configured...
 sleep 2s
 
-amixer sset Master unmute
+amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
