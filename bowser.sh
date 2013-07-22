@@ -57,6 +57,6 @@ amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
-echo rebooting...
-sleep 2s
-reboot
+#echo rebooting...
+#sleep 2s
+#reboot
