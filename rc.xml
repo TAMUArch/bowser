@@ -593,7 +593,7 @@
   <context name="Root">
     <!-- Menus -->
     <mousebind button="Left" action="Click">
-      <action name="Execute"><command>chromium http://www.google.com</command></action>
+      <action name="Execute"><command>chromium --incognito http://www.google.com</command></action>
     </mousebind> 
   </context>
 
