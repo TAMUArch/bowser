@@ -1,1 +1,1 @@
-*/5 * * * * ./home/bowser/cronjob.sh
+0 0 * * * /home/bowser/cronjob.sh
