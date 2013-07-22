@@ -1,7 +1,7 @@
 # Should make it run everynight at midnight:
 # 0 0 * * * ./home/bowser/cronjob.sh
 
-rm -r /home/guest/*
+rm -rf /home/guest/*
 
 echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> /home/guest/.bash_profile
 
