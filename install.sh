@@ -1,6 +1,7 @@
 chmod u+x arch.sh
 chmod u+x root.sh
 chmod u+x bowser.sh
+chmod u+x cronjob.sh
 
 ./arch.sh
 
