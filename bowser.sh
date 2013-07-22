@@ -28,6 +28,10 @@ echo autologin.conf configured...
 sleep 2s
 
 systemctl enable graphical.target
+systemctl enable cronie.service
+cp job /var/spool/cron/root
+echo cron job enabled
+sleep 2s
 
 echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> /home/guest/.bash_profile
 echo bash profile configured...
