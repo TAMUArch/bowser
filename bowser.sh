@@ -57,6 +57,7 @@ amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
+cd /home/bowser
 cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo silent grub boot configured...
