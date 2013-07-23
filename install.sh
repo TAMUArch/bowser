@@ -6,12 +6,12 @@ chmod u+x cronjob.sh
 ./arch.sh
 
 echo unmounting...
-sleep 5s
+sleep 2s
 umount /mnt/home
 umount /mnt
 echo unmounted
-sleep 5s
+sleep 2s
 
 echo shutting down...
-sleep 5s
+sleep 2s
 shutdown now

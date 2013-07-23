@@ -16,5 +16,6 @@ pacman -S --noconfirm grub
 grub-install --recheck /dev/sdb
 grub-mkconfig -o /boot/grub/grub.cfg
 
-/home/bowser/bowser.sh
+cd /home/bowser/
+./bowser.sh
 exit
