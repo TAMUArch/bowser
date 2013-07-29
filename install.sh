@@ -8,6 +8,7 @@ chmod u+x cronjob.sh
 
 echo unmounting...
 sleep 2s
+umount /mnt/home
 umount /mnt
 echo unmounted
 sleep 2s
