@@ -1,6 +1,6 @@
 pacman -Syy --noconfirm
 pacman -Syu --noconfirm
-#There are 4 "Y - Enter" requests. Not sure if for Syy or Syu. I think its Syu 
+
 (echo 'n
 p
 1
