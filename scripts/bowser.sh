@@ -1,21 +1,8 @@
 # this is all post partitioning, initial install, and reboot
 
-pacman -S --noconfirm xorg-server
-                      xorg-server-utils
-                      xorg-xinit
-                      mesa
-                      xf86-video-vesa
-                      xf86-video-intel
-                      xorg-twm
-                      xorg-xclock
-                      xterm
-                      openbox
-                      chromium
-                      openssh
-                      rsync
-                      flashplayer
-                      feh
-                      alsa-utils
+pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit mesa
+pacman -S --noconfirm xf86-video-vesa xf86-video-intel xorg-twm xorg-xclock xterm
+pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils
 
 echo pacman operations complete
 sleep 2s
@@ -36,7 +23,7 @@ sleep 2s
 
 systemctl enable graphical.target
 systemctl enable cronie.service
-cp job /var/spool/cron/root
+cp config/job /var/spool/cron/root
 echo cron job enabled
 sleep 2s
 
