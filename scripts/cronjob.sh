@@ -8,9 +8,9 @@ echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> /home/guest/.bash_
 cp -r /home/guest /opt/
 cd /opt/guest/
 chmod -R a+r . 
-cp /home/bowser/.xinitrc /opt/guest/
+cp /home/bowser/config/.xinitrc /opt/guest/
 chmod a+x .xinitrc
 cp .xinitrc /home/guest/
   
-cp /home/bowser/.fehbg /home/guest/
+cp /home/bowser/config/.fehbg /home/guest/
 
