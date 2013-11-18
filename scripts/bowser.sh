@@ -21,7 +21,7 @@ sleep 2s
 
 systemctl enable graphical.target
 systemctl enable cronie.service
-cp config/job /var/spool/cron/root
+cp /home/bowser/config/job /var/spool/cron/root
 echo cron job enabled
 sleep 2s
 
