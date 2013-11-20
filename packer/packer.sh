@@ -1,3 +1,4 @@
+pacman -Syyu --noconfirm
 pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit mesa
 pacman -S --noconfirm xf86-video-vesa xf86-video-intel xorg-twm xorg-xclock xterm
 pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils git
