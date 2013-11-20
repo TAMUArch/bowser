@@ -6,11 +6,18 @@
         "iso_url": "http://dfw.mirror.rackspace.com/archlinux/iso/2013.11.01/archlinux-2013.11.01-dual.iso",
         "iso_checksum": "2535d1308fcc4f12420433dba039b3b6",
         "iso_checksum_type": "md5",
-        "boot_command": [ "<enter><wait5>" ],
+        "boot_command": [ "<enter><wait30>" ],
         "disk_size": 20480,
         "ssh_username": "root",
         "ssh_password": "vagrant",
         "shutdown_command": "systemctl start poweroff.timer"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["echo shit"]
     }
   ]
 }
