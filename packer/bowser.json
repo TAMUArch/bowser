@@ -8,8 +8,6 @@
         "iso_checksum_type": "md5",
         "boot_command": [
           "<enter><wait10><wait10>",
-          "/usr/bin/curl -O http://{{.HTTPIP}}:{{.HTTPPort}}/install-virtualbox.sh<enter><wait5>",
-          "/usr/bin/bash ./install-virtualbox.sh<enter>"
           "systemctl start sshd<enter>",
           "<wait5>",
           "passwd<enter>",
@@ -28,7 +26,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "packer.sh"
+      "script": "install-virtualbox.sh"
     }
   ]
 }

@@ -65,6 +65,5 @@ rvm use ruby
 rvm gemset create bowser
 rvm gemset use bowser
 bundle install
-./run.sh
 echo bowser-webapp installed...
 sleep 2s
