@@ -91,4 +91,3 @@ rm "${TARGET_DIR}${CONFIG_SCRIPT}"
 echo '==> installation complete!'
 /usr/bin/sleep 3
 /usr/bin/umount ${TARGET_DIR}
-shutdown now

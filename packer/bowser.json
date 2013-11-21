@@ -19,7 +19,7 @@
         "disk_size": 20480,
         "ssh_username": "root",
         "ssh_password": "vagrant",
-        "shutdown_command": "shutdown now"
+        "shutdown_command": "shutdown -h now"
     }
   ],
 
