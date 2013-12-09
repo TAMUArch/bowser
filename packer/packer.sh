@@ -1,14 +1,7 @@
-# this is all post partitioning, initial install, and reboot
-
-pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit
-pacman -S --noconfirm mesa
-pacman -S --noconfirm xf86-video-vesa
-pacman -S --noconfirm xf86-video-intel
-pacman -S --noconfirm xorg-twm xorg-xclock xterm
-
-pacman -S --noconfirm openbox chromium openssh rsync
-
-pacman -S --noconfirm flashplayer feh alsa-utils
+pacman -Syyu --noconfirm
+pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit mesa
+pacman -S --noconfirm xf86-video-vesa xf86-video-intel xorg-twm xorg-xclock xterm
+pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils git
 
 echo pacman operations complete
 sleep 2s
@@ -29,7 +22,7 @@ sleep 2s
 
 systemctl enable graphical.target
 systemctl enable cronie.service
-cp job /var/spool/cron/root
+cp /home/bowser/config/job /var/spool/cron/root
 echo cron job enabled
 sleep 2s
 
@@ -41,15 +34,15 @@ cp -r /home/guest /opt/
 cd /opt/guest/
 chmod -R a+r . 
 
-cp /home/bowser/.xinitrc /opt/guest/
+cp /home/bowser/config/.xinitrc /opt/guest/
 chmod a+x .xinitrc
 cp .xinitrc /home/guest/
 echo xinitrc configured...
 sleep 2s
 
-cp /home/bowser/.fehbg /home/guest/
+cp /home/bowser/config/.fehbg /home/guest/
 rm /etc/xdg/openbox/rc.xml
-cp /home/bowser/rc.xml /etc/xdg/openbox/rc.xml
+cp /home/bowser/config/rc.xml /etc/xdg/openbox/rc.xml
 echo desktop and chromium configured...
 sleep 2s
 
@@ -57,12 +50,20 @@ amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
-cd /home/bowser
+cd /home/bowser/config/
 cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo silent grub boot configured...
 sleep 2s
 
-#echo rebooting...
-#sleep 2s
-#reboot
+\curl -L https://get.rvm.io | bash -s stable --ruby
+source /home/vagrant/.rvm/scripts/rvm
+cd ~/
+git clone https://github.com/TAMUArch/bowser-webapp.git
+cd bowser-webapp
+rvm use ruby
+rvm gemset create bowser
+rvm gemset use bowser
+bundle install
+echo bowser-webapp installed...
+sleep 2s

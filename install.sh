@@ -1,10 +1,10 @@
 #Version 1
-chmod u+x arch.sh
-chmod u+x root.sh
-chmod u+x bowser.sh
-chmod u+x cronjob.sh
+chmod u+x scripts/arch.sh
+chmod u+x scripts/root.sh
+chmod u+x scripts/bowser.sh
+chmod u+x scripts/cronjob.sh
 
-./arch.sh
+./scripts/arch.sh
 
 echo unmounting...
 sleep 2s

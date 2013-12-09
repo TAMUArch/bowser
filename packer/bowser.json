@@ -1,0 +1,32 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox",
+        "guest_os_type": "ArchLinux_64",
+        "iso_url": "http://dfw.mirror.rackspace.com/archlinux/iso/2013.11.01/archlinux-2013.11.01-dual.iso",
+        "iso_checksum": "2535d1308fcc4f12420433dba039b3b6",
+        "iso_checksum_type": "md5",
+        "boot_command": [
+          "<enter><wait10><wait10>",
+          "systemctl start sshd<enter>",
+          "<wait5>",
+          "passwd<enter>",
+          "<wait5>",
+          "vagrant<enter>",
+          "<wait5>",
+          "vagrant<enter>"
+        ],
+        "disk_size": 20480,
+        "ssh_username": "root",
+        "ssh_password": "vagrant",
+        "shutdown_command": "shutdown -h now"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "install-virtualbox.sh"
+    }
+  ]
+}
