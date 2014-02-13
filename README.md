@@ -5,6 +5,7 @@ Version 1.0
 Bash build scripts are written to operate on an Arch Linux system ONLY.
 
 1) Git clone the bowser repo.
+
 2) Ensure the bowser directory is located at 
 ```
 /home/bowser
