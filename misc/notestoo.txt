@@ -1,0 +1,83 @@
+NOTES:
+
+BOWSER WEBAPP:
+
+FUTURE FEATURES:
+
+  feature_dhcp: add effect(alert?) to dhcp buttons 
+                (there is a loading state for the buttons... perhaps use this)
+
+  feature_pingpages: update good ping and bad ping pages to reflect 
+                     new page format
+  feature_ping: change ping from loading a new page to flashing an alert
+
+  feature_favicon: update favicon
+
+  feature_restrict: restrict inputs to only accept working parameters
+
+  feature_cleanup: need to delete touched network files after they are copied
+                   to their correct locations (or just move them instead of copy)
+
+  feature_confd: does /etc/conf.d/ exist on bowser?
+                 it does not seem to exist on the vagrant box....
+
+  feature_sidenav: should highlight current location, 
+                   or bold current location and highlight hovering selection
+REQUIREMENTS:
+
+  Ping button
+    Works
+    Change from loading new page to flashing an alert
+    Not Complete
+
+  Set Static IP Form
+    Works as far as I can tell
+
+  DHCP Buttons
+    Works as far as I can tell
+    Not Complete
+
+  Wireless Form
+    Down the road yo
+
+*************************************************************************************
+*************************************************************************************
+BOWSER INVENTORY:
+
+allow check in for inventory, of who's checking,
+in what version of bowser they're running, send remote commands...
+serial code
+inventory run locally, can use rails b/c database
+
+*************************************************************************************
+*************************************************************************************
+BOWSER:
+
+pacman net-tools
+  for ifconfig
+
+*************************************************************************************
+*************************************************************************************
+
+Getting Bowser Admin on Bowser
+
+Run with Unicorn not WEBBRICK
+
+Get it to run at boot using systemd
+
+make it so typing "admin" in search bar takes you to page
+
+  update app.rb 
+    set :port, '80'
+
+cp /etc/hosts
+
+#
+#/etc/hosts: static lookup table for host names
+#
+
+#<ip-address>     <hostname.domain.org>                       <hostname>
+127.0.0.1        admin.localdomain localhost.localdomain     localhost
+::1               localhost.localdomain                       localhost
+
+# End of file
