@@ -1,6 +1,6 @@
 pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit mesa
 pacman -S --noconfirm xf86-video-vesa xf86-video-intel xorg-twm xorg-xclock xterm
-pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils git
+pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils
 
 echo pacman operations complete
 sleep 2s
@@ -53,17 +53,4 @@ cd /home/bowser/config/
 cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo silent grub boot configured...
-sleep 2s
-
-\curl -L https://get.rvm.io | bash -s stable --ruby
-source /home/vagrant/.rvm/scripts/rvm
-cd ~/
-git clone https://github.com/TAMUArch/bowser-webapp.git
-cd bowser-webapp
-rvm use ruby
-rvm gemset create bowser
-rvm gemset use bowser
-bundle install
-./run.sh
-echo bowser-webapp installed...
 sleep 2s
