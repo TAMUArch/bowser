@@ -50,7 +50,12 @@ amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
-cp /home/bowser/misc/readme.txt /home/guest/
+cp /home/bowser/misc/readme.html /usr/share/nginx/html/readme.html
+systemctl enable nginx
+systemctl start nginx
+echo readme server configured...
+sleep 2s
+
 cd /home/bowser/config/
 cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
