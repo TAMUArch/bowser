@@ -51,6 +51,7 @@ echo sound configured...
 sleep 2s
 
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
+echo source /etc/profile.d/rvm.sh
 echo rvm installed...
 sleep 2s
 
