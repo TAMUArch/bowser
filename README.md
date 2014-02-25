@@ -2,7 +2,9 @@ This is your chromium only operating system.
 
 Version 1.0
 
-Bash build scripts are written to operate on an Arch Linux system ONLY.
+These bash build scripts are intended to be run on an Arch Live USB. 
+
+They are hard coded to write Bowser Arch on sdb.
 
 1) Git clone the bowser repo.
 ```

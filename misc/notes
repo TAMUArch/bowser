@@ -7,3 +7,14 @@ run performance specs on current bowser machine
 look for something with a gig of ram
 
 eg beagle bone black
+
+
+UPDATING BOWSER TO AUTOSTART WEB SERVER
+
+still need to:
+
+git clone bowser webapp into /home/guest
+rvm
+gem install bundler
+bundle install
+

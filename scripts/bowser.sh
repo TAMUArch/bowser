@@ -1,6 +1,7 @@
 pacman -S --noconfirm xorg-server xorg-server-utils xorg-xinit mesa
 pacman -S --noconfirm xf86-video-vesa xf86-video-intel xorg-twm xorg-xclock xterm
 pacman -S --noconfirm openbox chromium openssh rsync flashplayer feh alsa-utils
+pacman -S --noconfirm vim git
 
 echo pacman operations complete
 sleep 2s
@@ -49,6 +50,7 @@ amixer sset Master unmute, playback 31db
 echo sound configured...
 sleep 2s
 
+cp /home/bowser/misc/static /etc/netctl/
 cd /home/bowser/config/
 cp grub /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
